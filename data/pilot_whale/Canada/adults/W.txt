@@ -1,0 +1,12 @@
+WEIGHT
+species: pilot whale
+life stage: adults
+population: Canada
+region: NA
+source: NA
+cited by: Laurel et al. 2015 
+unit: kg
+notes: 850kg +20%CV. includes Kenney et al., 1997 (see values in Benoit resdoc)
+
+mean	sd
+850	170

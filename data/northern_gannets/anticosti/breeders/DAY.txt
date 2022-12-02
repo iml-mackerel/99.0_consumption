@@ -1,0 +1,12 @@
+DAYS OF PREY CONSUMPTION
+species: gannet
+life stage: breeders
+population: Bonavantura
+region: Quebec
+source: Guillemette et al. 2018
+cited by: Guillemette et al. 2018
+unit: days
+notes: stated that mackerel in diet from hatching at 26 june till 30 sept = 97 days. The average diet is assumed to represent this period.
+
+mean	sd
+100	12

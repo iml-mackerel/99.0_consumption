@@ -1,0 +1,12 @@
+WEIGHT
+species: harbour porpoise
+life stage: adults
+population: Canada
+region: NA
+source: NA
+cited by: Laurel et al. 2015 
+unit: kg
+notes: 31kg +20%CV. includes Kenney et al., 1997 and Richardson 2003 (see values in Benoit resdoc)
+
+mean	sd
+92	18.4

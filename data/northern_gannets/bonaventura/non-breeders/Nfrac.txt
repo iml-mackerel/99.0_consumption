@@ -1,0 +1,12 @@
+ABUNDANCE FRACTION
+species: gannet
+life stage: non-breeders
+population: bonavantura
+region: southern GSL
+source: Guillemette
+cited by: NA
+unit: proportion
+notes: PRELIMINAIRY!!! In paper guillemette around 11%, but higher in mail francois and montevecchi pape r(25 and 28%)
+
+min	max
+0.11	0.25

@@ -1,0 +1,12 @@
+PERCENTAGE PREY CONSUMED
+species: long-finned pilot whale
+life stage: adults
+population: Canada
+region: Canada
+source: Fontaine et al., 1994 (May-August 1989, 138 individuals, Gulf of Saint Lawrence and Estuary); Recchia and Read, 1989 (June-September 1985-1987, 95 individuals, Bay of Fundy); Smith and Gaskin, 1974 (May-September 1969-1972, 81 individuals, Nova Scotia/Prince Edward Island/Bay of Fundy) [in agreement with studies from the eastern US; Gannon et al., 1998; Orphanides et al., 2020]
+cited by: /
+unit: proportion in diet (energy and if not available weight)
+notes:
+
+min	max
+0.001	0.10

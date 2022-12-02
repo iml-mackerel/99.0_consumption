@@ -1,0 +1,12 @@
+DAILY ENERGY EXPENDITURE
+species: gannet
+life stage: breeders
+population: Funk Island
+region: Newfoundland
+source: Birt-Friesen et al. 1989
+cited by: Guillemette et al. 2018
+unit: kj/day
+notes: bio-energetic model. uncertainty no in guillemette
+
+mean	sd
+4865	450

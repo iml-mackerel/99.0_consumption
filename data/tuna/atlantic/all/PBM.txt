@@ -1,0 +1,12 @@
+PERCENTAGE BODY MASS
+species: tuna
+life stage: all
+population: GSL
+region: Canada
+source: Varella, etc.
+cited by: NA
+unit: %
+notes: NA
+
+min	mode	max
+0.5	1.5	4

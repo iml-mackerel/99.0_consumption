@@ -1,0 +1,12 @@
+DAYS OF PREY CONSUMPTION
+species: gannet
+life stage: breeders
+population: Baccalieu Island
+region: Newfoundland
+source: Montevecchi 1988 / mackerel fishery data
+cited by: NA
+unit: days
+notes: July + august + september. The average diet is assumed to represent this period (though the majority of samples if from august)
+
+mean	sd
+69	41

@@ -1,0 +1,12 @@
+PERCENTAGE PREY CONSUMED
+species: grey seals
+life stage: all
+population: all
+region: all
+source: /
+cited by: NA
+unit: fraction (weight)
+notes: 
+
+min	max
+0.001	0.04

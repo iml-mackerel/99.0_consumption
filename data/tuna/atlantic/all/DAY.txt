@@ -1,0 +1,12 @@
+DAYS OF PREY CONSUMPTION
+species: tuna
+life stage: all
+population: GSL
+region: Canada
+source: tagging (Block 2019) and fishing
+cited by: NA
+unit: days
+notes:
+
+min	max
+122	168

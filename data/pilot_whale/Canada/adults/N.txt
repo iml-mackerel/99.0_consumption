@@ -1,0 +1,13 @@
+ABUNDANCE
+species: pilot whale
+life stage: adults
+population: Canada
+region: Canada
+source: draft resdoc Gosselin
+cited by: NA
+unit: log numbers
+notes: 
+
+year	logmean	logsd
+2007	9.684	0.696
+2016	10.317	0.315

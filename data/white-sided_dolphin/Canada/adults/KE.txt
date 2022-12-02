@@ -1,0 +1,13 @@
+KLEIBER EQUATION PARAMETERS
+species: Cetaceans
+life stage: adults
+population: global
+region: NA
+source: NA
+cited by: Innes 1987
+unit: g/day
+notes: see Rscript Innes 1987 for covariance
+
+parameter	mu	sigma.1	sigma.2	
+alpha	0.313	0.0040	-0.0021
+beta	0.66	-0.0021	0.0012

@@ -1,0 +1,12 @@
+TOTAL INTAKE
+species: gannet
+life stage: chicks
+population: Bacalieu Island
+region: Newfoundland
+source: Montevecchi et al. 1984
+cited by: Guillemette et al. 2018
+unit: g
+notes: only 2 chicks and no sd
+
+mean	sd
+24174	0

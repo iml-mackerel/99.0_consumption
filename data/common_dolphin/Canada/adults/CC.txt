@@ -1,0 +1,12 @@
+CALORIC CONTENT
+species: -
+life stage: -
+population: -
+region: -
+source: -
+cited by: -
+unit: kj/g
+notes: for conversion of DEE in kg/day to g/day
+
+mean	sd
+0.001	0

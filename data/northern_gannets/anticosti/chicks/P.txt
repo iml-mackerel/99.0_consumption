@@ -1,0 +1,12 @@
+PERCENTAGE PREY CONSUMED
+species: gannet
+life stage: breeders
+population: bonavantura
+region: southern GSL
+source: Guillemette et al. 2018
+cited by: Guillemette et al. 2018
+unit: % (energy)
+notes:
+
+min	max
+0.54	1

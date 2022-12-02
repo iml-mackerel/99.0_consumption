@@ -1,0 +1,13 @@
+ABUNDANCE
+species: common dolphine
+life stage: adults
+population: Canada
+region: Canada
+source: draft resdoc Gosselin
+cited by: NA
+unit: numbers
+notes: 
+
+year	logmean	logsd
+2007	12.064	0.567
+2016	11.517	0.539

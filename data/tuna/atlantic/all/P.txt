@@ -1,0 +1,12 @@
+PERCENTAGE PREY CONSUMED
+species: tuna
+life stage: all
+population: Canada
+region: Canada
+source: See table
+cited by: NA
+unit: fraction
+notes:
+
+min	max
+0.1	0.75

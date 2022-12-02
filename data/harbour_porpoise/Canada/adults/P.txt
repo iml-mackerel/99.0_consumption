@@ -1,0 +1,12 @@
+PERCENTAGE PREY CONSUMED
+species: harbour porpoise
+life stage: adults
+population: Canada
+region: Canada
+source: Fontaine 1994, Recchia 1989, Smith and Gaskin 1974 (Gannon for Gulf of Main not included, though same conclusion)
+cited by: /
+unit: proportion (energy)
+notes:
+
+min	max
+0.001	0.07

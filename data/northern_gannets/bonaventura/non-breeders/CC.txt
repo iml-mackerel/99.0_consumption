@@ -1,0 +1,12 @@
+CALORIC CONTENT
+species: mackerel
+life stage: adult
+population: West-Atlantic
+region: Bay of Biscay
+source: Spitz et al. 2013
+cited by: Guillemette et al. 2018
+unit: kj/g
+notes: Guillemette works with deterministic value. uncertainty in Spitz et al. years = 2002-2010. value is ANNUAL, but spring and autumn is also available.
+
+mean	sd
+7.5	1.5

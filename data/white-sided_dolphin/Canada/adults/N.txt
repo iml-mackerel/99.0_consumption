@@ -1,0 +1,13 @@
+ABUNDANCE
+species: white-sided dolphin
+life stage: adults
+population: Canada
+region: Canada
+source: draft resdoc Gosselin
+cited by: NA
+unit: log numbers
+notes: 
+
+year	logmean	logsd
+2007	10.103	0.442
+2016	11.425	0.631

@@ -1,0 +1,12 @@
+ASSIMILATION EFFICIENCY
+species: gannet
+life stage: breeders
+population: cape town
+region: south africa
+source: Cooper 1978
+cited by: Guillemette et al. 2018
+unit: %
+notes: see script cooper_1978. values correspond to other sources (dunn 1975a, saraux 2019)
+
+mean	sd
+0.7519	0.0340

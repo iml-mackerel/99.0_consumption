@@ -1,0 +1,12 @@
+DAYS OF PREY CONSUMPTION
+species: white-sided dolphin
+life stage: adults
+population: Canada
+region: Canada
+source: days of ice - days of mackerel fishing
+cited by: 
+unit: days
+notes:
+
+min	max
+152	182

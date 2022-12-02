@@ -1,0 +1,12 @@
+PERCENTAGE PREY CONSUMED
+species: gannet
+life stage: breeders
+population: funk island
+region: Newfoundland
+source: Montevecchi 1988
+cited by: NA
+unit: % (energy)
+notes: % mass in reality
+
+min	max
+0.10	1

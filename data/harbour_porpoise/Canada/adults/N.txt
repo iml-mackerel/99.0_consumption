@@ -1,0 +1,13 @@
+ABUNDANCE
+species: harbour porpoise
+life stage: adults
+population: Canada
+region: Canada
+source: draft resdoc Gosselin
+cited by: NA
+unit: log numbers
+notes: 
+
+year	logmean	logsd
+2007	9.684	0.566
+2016	11.415	0.515

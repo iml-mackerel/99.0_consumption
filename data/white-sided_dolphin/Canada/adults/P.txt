@@ -1,0 +1,12 @@
+PERCENTAGE PREY CONSUMED
+species: white-sided dolphin
+life stage: adults
+population: Canada
+region: Canada
+source: see table
+cited by: /
+unit: proportion (energy)
+notes:
+
+min	max
+0.001	0.05

@@ -1,0 +1,12 @@
+METABOLISABLE ENERGY
+species: grey seals
+life stage: adults
+population: Gulf
+region: NA
+source: NA
+cited by: Benoit and Swain 2011
+unit: NA
+notes: NA
+
+mean	sd
+0.827	0.048

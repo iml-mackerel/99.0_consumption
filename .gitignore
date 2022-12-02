@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.Ruserdata
+.Rdata
+data_supp/
+info/
+tests/
+Rdata/
+

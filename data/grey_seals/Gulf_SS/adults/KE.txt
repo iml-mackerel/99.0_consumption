@@ -1,0 +1,13 @@
+KLEIBER EQUATION PARAMETERS
+species: grey seals
+life stage: adults
+population: Gulf
+region: NA
+source: NA
+cited by: Benoit and Swain 2011
+unit: kj/day
+notes: variance beta in Benoit 2011 incorrect (validated to be 0.035)
+
+parameter	mu	sigma.1	sigma.2	
+alpha	293.75	5393.1	-12.393
+beta	0.75	-12.393	0.035

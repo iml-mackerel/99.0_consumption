@@ -1,0 +1,12 @@
+CALORIC CONTENT
+species: grey seals
+life stage: adults
+population: Gulf_SS
+region: Gulf_SS
+source: see annex
+cited by: 
+unit: kj/g
+notes: average of caloric value for range of prey
+
+min	mode	max
+3	5.6	7.5

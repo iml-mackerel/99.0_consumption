@@ -1,0 +1,12 @@
+ACTIVITY FACTOR
+species: grey seals
+life stage: adults
+population: Gulf
+region: NA
+source: Cooper 1978
+cited by: Benoit and Swain 2011
+unit: NA
+notes: NA
+
+min	mode	max
+1.7	2	3
