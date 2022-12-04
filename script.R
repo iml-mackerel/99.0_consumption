@@ -95,5 +95,5 @@ consum.tot <- ddply(consum[consum$group!="Cetaceans (Canada)",],c('year','sim'),
 consum.tot <- ddply(consum.tot, c('year'),summarise,low=quantile(C,0.025),med=median(C),high=quantile(C,0.975))   
 
 save(consum.tot,file='Rdata/consum.tot.Rdata')
-write.table(consum.tot,file="output/consum.txt")
+write.table(consum.tot,file="output/consum.txt",row.names = FALSE)
 
