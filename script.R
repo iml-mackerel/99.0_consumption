@@ -91,8 +91,17 @@ save(consum,file='Rdata/consum.Rdata')
 groups <- read.csv("data_supp/groups.csv")
 consum <- merge(consum,groups,all.x=TRUE)
 
+with(consum[consum$group!="Cetaceans (Canada)",],table(year,species))
+newtuna <- consum[consum$species=="tuna" & consum$year==2019,]  # tuna does not have 2020 and 2021: forward 2019
+newtuna$year <- 2020
+consum <- rbind(consum,newtuna)
+newtuna$year <- 2021
+consum <- rbind(consum,newtuna)
+
 consum.tot <- ddply(consum[consum$group!="Cetaceans (Canada)",],c('year','sim'),summarise,C=sum(C))
 consum.tot <- ddply(consum.tot, c('year'),summarise,low=quantile(C,0.025),med=median(C),high=quantile(C,0.975))   
+
+consum.tot <- consum.tot[consum.tot$year %in% 1968:2021,]
 
 save(consum.tot,file='Rdata/consum.tot.Rdata')
 write.table(consum.tot,file="output/consum.txt",row.names = FALSE)
