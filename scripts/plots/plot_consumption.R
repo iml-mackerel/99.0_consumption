@@ -2,9 +2,15 @@
 # Plot consumption estimates in various ways
 ######################################################################################################
 
+wdimg <- 'img/consumption'
+
 load(file='Rdata/consum.Rdata')
 groups <- read.csv("data_supp/groups.csv")
 consum <- merge(consum,groups,all.x=TRUE)
+
+newtuna <- consum[consum$species=="tuna" & consum$year==2019,]
+newtuna$year <- 2020
+consum <- rbind(consum,newtuna)
 
 # plots  #############################################################################################
 ## by categorie (US groundfish put together) ----------------------------------------------------------
@@ -31,6 +37,16 @@ ptot <- ggplot(consumqs,aes(x=year))+
     geom_blank(aes(y = 0)) 
 
 saveplot(ptot,'consumption_groups',wd=wdimg,c(25,15))
+
+ptotnoci <- ggplot(consumqs,aes(x=year,y=med,col=group))+
+    geom_line(size=1)+
+    labs(y='Mackerel consumption (t)',x='Year',col='')+
+    scale_y_continuous(expand=c(0,0))+
+    scale_x_continuous(expand=c(0,0),limits=c(1968,2020))+
+    scale_color_manual(values=c(viridis::viridis(5),'black'))+
+    geom_blank(aes(y = 0)) 
+
+saveplot(ptotnoci,'consumption_groups_noci',wd=wdimg,c(15,10))
 
 ## gannets -----------------------------------------------------------------------------------
 consumg <- ddply(consum[consum$species=='northern_gannets',], c('year','species','population','lifestage'),summarise,low=quantile(C,0.025),med=median(C),high=quantile(C,0.975))   

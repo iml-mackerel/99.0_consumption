@@ -16,17 +16,9 @@ gan_ab <- rbind(bon,ant,bir)
 
 ggplot(gan_ab,aes(x=year,y=mean,col=pop))+geom_line()
 
-y <- "data/atlantic_mackerel/canada/adult/ssb.txt"
-mssb <- read.input(y)
-
-z <- "data/atlantic_mackerel/canada/adult/catch.txt"
-mcatch <- read.input(z)
-
-Mmodel <- (1-exp(-0.2))*mssb$value
-
 ### breeders ###############################################################
 ingestion_rate = 4865 #kj/day (DEE)
-digestibility = 0.75 # % also known as assimilation efficiency
+digestibility = 0.8 # % also known as assimilation efficiency (in paper it is written 0.75 but in reality 0.8 was used: see mail)
 prey_calo_content = 7.5 # kj/g, NRJ
 prey_perc = c(0.54,1) # % mackerel in diet
 time = 100 # days
@@ -34,8 +26,6 @@ time = 100 # days
 prey_gram = ingestion_rate/digestibility/prey_calo_content # per day grams eaten
 mack = prey_gram*prey_perc #per day, grams of mackerel eaten
 mack # guillemette: 438-811g of mackerel !!! (I don't understand how guillemette got to these numbers, but they're onyl slighy different)
-
-#mack = c(438,811)
 
 gan_ab$low_breeders <- gan_ab$mean*mack[1]*time/1000000 # total tonnes of mackerel eaten
 gan_ab$high_breeders <- gan_ab$mean*mack[2]*time/1000000 # total tonnes of mackerel eaten
@@ -77,18 +67,5 @@ names(tot)[2] <- 'year'
 ggplot(tot,aes(x=year))+geom_point(aes(y=pred),col='red')+geom_point(aes(y=y))
 ggplot(tot,aes(x=year,ymin=low,ymax=high,fill=pop))+geom_ribbon() # needs to all be the same time frame
 
-### plots for comparison  ###############################################################
-fin <- ddply(tot,c('year'),summarise,low=sum(low),high=sum(high))
-grid.arrange(
-ggplot(fin,aes(x=year))+
-    geom_ribbon(data=mssb,aes(ymin=low,ymax=high),fill='grey')+
-    geom_line(data=mssb,aes(y=value))+
-    geom_line(data=mcatch,aes(y=value),col='red')+
-    geom_line(data=data.frame(year=mcatch$year,M=Mmodel),aes(y=M),col='orange')+
-    geom_ribbon(aes(ymin=low,ymax=high),fill='green',alpha=0.5),
-ggplot(fin,aes(x=year))+
-    geom_ribbon(aes(ymin=low,ymax=high),fill='green',alpha=0.5)
-)
-
-
-
+t <- ddply(tot,'year',summarise,low=sum(low),high=sum(high))
+ggplot(t,aes(x=year,ymin=low,ymax=high))+geom_ribbon()

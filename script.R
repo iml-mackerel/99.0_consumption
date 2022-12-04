@@ -6,7 +6,6 @@
 wd <- 'data'
 wdimg <- 'img/consumption'
 avail <- avail.predator(wd)
-avail <- avail[!avail$species=='atlantic_mackerel',-which(colnames(avail) %in% c('catch','ssb'))] # remove the predator
 avail
 
 # 1) get input data -------------------------------
@@ -86,4 +85,15 @@ consum$usgroundfish <- consum.usgroundfish
 consum <- do.call('rbind.fill',consum)
 
 save(consum,file='Rdata/consum.Rdata')
+
+
+## total annual consumption
+groups <- read.csv("data_supp/groups.csv")
+consum <- merge(consum,groups,all.x=TRUE)
+
+consum.tot <- ddply(consum[consum$group!="Cetaceans (Canada)",],c('year','sim'),summarise,C=sum(C))
+consum.tot <- ddply(consum.tot, c('year'),summarise,low=quantile(C,0.025),med=median(C),high=quantile(C,0.975))   
+
+save(consum.tot,file='Rdata/consum.tot.Rdata')
+write.table(consum.tot,file="output/consum.txt")
 
