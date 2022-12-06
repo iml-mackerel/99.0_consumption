@@ -86,20 +86,39 @@ consum <- do.call('rbind.fill',consum)
 
 save(consum,file='Rdata/consum.Rdata')
 
+# 4) total estimated consumption  ----------------------------
 
-## total annual consumption
+#load(file='Rdata/consum.Rdata')
 groups <- read.csv("data_supp/groups.csv")
 consum <- merge(consum,groups,all.x=TRUE)
 
+# exclude cetaceans and padd last years for tuna
 with(consum[consum$group!="Cetaceans (Canada)",],table(year,species))
+
 newtuna <- consum[consum$species=="tuna" & consum$year==2019,]  # tuna does not have 2020 and 2021: forward 2019
 newtuna$year <- 2020
 consum <- rbind(consum,newtuna)
 newtuna$year <- 2021
 consum <- rbind(consum,newtuna)
 
-consum.tot <- ddply(consum[consum$group!="Cetaceans (Canada)",],c('year','sim'),summarise,C=sum(C))
-consum.tot <- ddply(consum.tot, c('year'),summarise,low=quantile(C,0.025),med=median(C),high=quantile(C,0.975))   
+# overall median (be careful if not same number of simulations for each species)
+consum.tot1 <- ddply(consum[consum$group!="Cetaceans (Canada)",],c('year','species','sim'),summarise,C=sum(C))   # for every simulation, total over ages/herds/etc.
+consum.tot1 <- ddply(consum.tot1,c('year','species'),transform,nsim=length(C))   # for every simulation, total over ages/herds/etc.
+
+m <- max(consum.tot1$nsim)
+
+consum.tot2 <- ddply(consum.tot1,c('year','species'), function(x){ # subsample to boost number of sims for thos who have less
+    xx<<- x
+    n <- unique(x$nsim)
+    nmissing <- m-n
+    y <- x[sample(nrow(x), nmissing,replace=TRUE), ]
+    if(nrow(y)!=0) y$sim <- (n+1):m
+    return(rbind(x,y))
+})
+
+consum.tot3 <- ddply(consum.tot2,c('year','sim'),summarise,C=sum(C))
+
+consum.tot <- ddply(consum.tot3, c('year'),summarise,low=quantile(C,0.025),med=quantile(C,0.5),high=quantile(C,0.975))   
 
 consum.tot <- consum.tot[consum.tot$year %in% 1968:2021,]
 

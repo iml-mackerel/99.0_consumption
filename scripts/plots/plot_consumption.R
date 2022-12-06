@@ -8,6 +8,8 @@ load(file='Rdata/consum.Rdata')
 groups <- read.csv("data_supp/groups.csv")
 consum <- merge(consum,groups,all.x=TRUE)
 
+load(file='Rdata/consum.tot.Rdata')
+
 newtuna <- consum[consum$species=="tuna" & consum$year==2019,]
 newtuna$year <- 2020
 consum <- rbind(consum,newtuna)
@@ -16,12 +18,11 @@ consum <- rbind(consum,newtuna)
 ## by categorie (US groundfish put together) ----------------------------------------------------------
 consumqs <- ddply(consum,c('year','group','sim'),summarise,C=sum(C)) # sum over everything (lifestage,pop,sex)
 consumqs <- ddply(consumqs, c('year','group'),summarise,low=quantile(C,0.025),med=median(C),high=quantile(C,0.975))   
-consumqtot <- ddply(consum[consum$group!="Cetaceans (Canada)",],c('year','sim'),summarise,C=sum(C)) # sum over everything (lifestage,pop,sex)
-consumqtot <- ddply(consumqtot, c('year'),summarise,low=quantile(C,0.025),med=median(C),high=quantile(C,0.975))   
-consumqtot$group <- "Total (excluding cetaceans)"
-consumqtot$total <-TRUE
+ 
+consum.tot$group <- "Total (excluding cetaceans)"
+consum.tot$total <-TRUE
 consumqs$total <- FALSE
-consumqs <- rbind(consumqs,consumqtot)
+consumqs <- rbind(consumqs,consum.tot)
 
 ptot <- ggplot(consumqs,aes(x=year))+
     geom_ribbon(aes(ymin=low,ymax=high,fill=total),alpha=0.5)+
