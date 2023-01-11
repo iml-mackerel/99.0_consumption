@@ -80,7 +80,7 @@ consum <- lapply(1:length(pred),function(x){
       return(d)
     }
 })
-load('Rdata/consum.usgroundfish.Rdata')
+load('Rdata/consum.usgroundfish.1000sim.Rdata')
 consum$usgroundfish <- consum.usgroundfish
 consum <- do.call('rbind.fill',consum)
 

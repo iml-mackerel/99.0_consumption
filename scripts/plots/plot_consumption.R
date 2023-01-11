@@ -40,14 +40,15 @@ ptot <- ggplot(consumqs,aes(x=year))+
 saveplot(ptot,'consumption_groups',wd=wdimg,c(25,15))
 
 ptotnoci <- ggplot(consumqs,aes(x=year,y=med,col=group))+
-    geom_line(size=1)+
+    geom_line(size=0.5)+
     labs(y='Mackerel consumption (t)',x='Year',col='')+
     scale_y_continuous(expand=c(0,0))+
     scale_x_continuous(expand=c(0,0),limits=c(1968,2020))+
     scale_color_manual(values=c(viridis::viridis(5),'black'))+
-    geom_blank(aes(y = 0)) 
+    geom_blank(aes(y = 0)) +
+    theme(legend.position = 'top')
 
-saveplot(ptotnoci,'consumption_groups_noci',wd=wdimg,c(15,10))
+saveplot(ptotnoci,'consumption_groups_noci',wd=wdimg,c(18,10))
 
 ## gannets -----------------------------------------------------------------------------------
 consumg <- ddply(consum[consum$species=='northern_gannets',], c('year','species','population','lifestage'),summarise,low=quantile(C,0.025),med=median(C),high=quantile(C,0.975))   
@@ -71,6 +72,24 @@ pgannet <- ggplot(consumg,aes(x=year))+
     theme(legend.position = 'top')
 
 saveplot(pgannet,'consumption_gannets_percolonielifestage',wd=wdimg,c(25,15))
+
+
+## cetaceans -----------------------------------------------------------------------------------
+consumc <- ddply(consum[consum$group == 'Cetaceans (Canada)',], c('year','species'),summarise,low=quantile(C,0.025),med=median(C),high=quantile(C,0.975))   
+consumc$species <- revalue(consumc$species,c( "common_dolphin" = 'Common dolphin'  , 
+                                 "harbour_porpoise" = 'Harbour porpoise',
+                                 'pilot_whale' = 'Pilot whale',
+                                 "white-sided_dolphin" =  "White-sided dolphin"))
+
+pcet <- ggplot(consumc,aes(x=factor(year),y=med))+
+    geom_point()+
+    geom_errorbar(aes(ymin=low,ymax=high),size=0.5,width=0.1)+
+    facet_wrap(.~species)+
+    labs(y='Mackerel consumption (t)',x='Year')+
+    scale_y_continuous(expand=c(0,0),limits=c(0,18000))
+
+
+saveplot(pcet,'consumption_cetaceans_perspecies',wd=wdimg,c(10,10))
 
 ## US groundfish  -----------------------------------------------------------------------------------
 consumqs <- ddply(consum[consum$group %in% c('Groundfish (US)'),],c('year','species','sim'),summarise,C=sum(C))

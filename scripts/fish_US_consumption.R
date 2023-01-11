@@ -1,7 +1,8 @@
 ######################################################################################################
 # Get mackerel consumption from US groundfish
 # source: https://fwdp.shinyapps.io/tm2020/
-# notes: mean+-CI do not appear from a (log)normal distribution so unsure how to resample: 
+# notes: mean+-CI do not appear from a (log)normal distribution so unsure how to resample:
+# notes: DEPRICATED: got new data from Brian Smith (with spring/fall abundances)
 ######################################################################################################
 
 ####### total consumption  ########################################################################################
