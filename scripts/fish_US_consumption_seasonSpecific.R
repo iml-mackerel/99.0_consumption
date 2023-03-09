@@ -105,14 +105,15 @@ ggplot(consum,aes(x=year,y=abunpop))+
     scale_y_continuous(limits=c(0,max(consum$abunpop+2.1*consum$abunpop.sd)),expand=c(0,0))
 
 
-p <- ggplot(consum[consum$seacat=='SPRING',],aes(x=year,y=abunpop/1000000,col=tolower(comname),linetype=tolower(comname)))+
+p <- ggplot(consum[consum$seacat=='SPRING' &consum$year!=2020,],aes(x=year,y=abunpop/1000000,col=tolower(comname),shape=tolower(comname),linetype=tolower(comname)))+
     #geom_ribbon(aes(ymin=pmax(abunpop-2*abunpop.sd,0),ymax=abunpop+2*abunpop.sd,fill=seacat),alpha=0.5)+
     geom_line()+
     geom_point()+
     scale_color_viridis_d()+
-    labs(y='Abundance (million)',x='Year',col='Species',linetype='Species')+
+    labs(y='Abundance (millions)',x='Year',col='Species',linetype='Species',shape='Species')+
     scale_x_continuous(expand=c(0,0))+
-    scale_y_continuous(expand = c(0,0),limits=c(0,max(consum[consum$seacat=='SPRING','abunpop']/1000000,na.rm = T)*1.01))
+    scale_y_continuous(expand = c(0,0),limits=c(0,max(consum[consum$seacat=='SPRING','abunpop']/1000000,na.rm = T)*1.01))+
+    scale_shape_manual(values=1:9)
 saveplot(p,'N_USgroundfish_spring_allspecies',wd=wdimg,c(25,10))    
    
 p <- ggplot(consum,aes(x=year,y=abunpop/1000000))+
