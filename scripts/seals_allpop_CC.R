@@ -29,7 +29,7 @@ p <- ggplot(d[d$source %in% c('hammill','beck_summer'),],aes(x=cc))+
     geom_histogram()+
     facet_wrap(source~.,labeller = labs,ncol=1)+
     ylab("Count")+
-    xlab("'Caloric Content (kj/g)'")
+    xlab("'Energy density (kJ/g)'")
 
 saveplot(p,'CC_seals',wd=wdimg,c(15,10)) 
 
